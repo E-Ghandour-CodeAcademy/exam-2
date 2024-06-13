@@ -11,7 +11,26 @@
 # - If any two consecutive elements are equal, the list is considered "neither".
 
 def check(list):
-    pass
+    if len(list) < 2:
+        return "neither"
+    
+    is_increasing = True
+    is_decreasing = True
+    
+    for i in range(1, len(list)):
+        if list[i] > list[i - 1]:
+            is_decreasing = False
+        elif list[i] < list[i - 1]:
+            is_increasing = False
+        else:
+            return "neither"
+        
+    if is_increasing:
+        return "increasing"
+    elif is_decreasing:
+        return "decreasing"
+    else:
+        return "neither"
 
 # Examples:
 print(check([1, 2, 3]))  # Expected: "increasing"
