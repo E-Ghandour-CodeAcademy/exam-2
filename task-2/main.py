@@ -10,11 +10,22 @@
 # - If the product is None or does not contain a 'price' key, return False.
 
 def has_valid_price(product):
-	pass
+    if product is None or not isinstance(product, dict):
+        return False
+    
+    if 'price' not in product:
+        return False
+    
+    price = product['price']
+    
+    if isinstance(price, (int, float)) and price >= 0:
+        return True
+    else:
+        return False
 
 # Desired Outcome:
-# print(has_valid_price({ "product": "Milk", "price": 1.50 }))  # Expected: True
-# print(has_valid_price({ "product": "Cheese", "price": -1 }))  # Expected: False
-# print(has_valid_price({ "product": "Eggs", "price": 0 }))  # Expected: True
-# print(has_valid_price({ "product": "Cereals", "price": "3.0" }))  # Expected: False
-# print(has_valid_price(None))  # Expected: False
+print(has_valid_price({ "product": "Milk", "price": 1.50 }))  # Expected: True
+print(has_valid_price({ "product": "Cheese", "price": -1 }))  # Expected: False
+print(has_valid_price({ "product": "Eggs", "price": 0 }))  # Expected: True
+print(has_valid_price({ "product": "Cereals", "price": "3.0" }))  # Expected: False
+print(has_valid_price(None))  # Expected: False
