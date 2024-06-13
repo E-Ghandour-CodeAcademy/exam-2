@@ -11,7 +11,19 @@
 # - Return the list of names in alphabetical order.
 
 def who_passed(students):
-    pass
+    passed_students = []
+    
+    for student, scores in students.items():
+        all_passed = True
+        for score in scores:
+            x, y = map(int, score.split('/'))
+            if x != y:
+                all_passed = False
+                break
+        if all_passed:
+            passed_students.append(student)
+    
+    return sorted(passed_students)
 
 # Examples:
 print(who_passed({
