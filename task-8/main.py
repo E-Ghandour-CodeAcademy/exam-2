@@ -10,7 +10,17 @@
 # - After the comma, you must put a space.
 
 class OnesThreesNines:
-    pass
+    def __init__(self, num):
+        if not (0 <= num <= 26):
+            raise ValueError("Number must be between 0 and 26")
+
+        nines = num // 9
+        remainder = num % 9
+
+        threes = remainder // 3
+        ones = remainder % 3
+
+        self.answer = f"nines:{nines}, threes:{threes}, ones:{ones}"
 
 # Examples:
 otn1 = OnesThreesNines(10)
