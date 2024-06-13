@@ -9,7 +9,22 @@
 # - Population density is calculated as the population divided by the area.
 
 class Country:
-    pass
+    def __init__(self, name, population, area):
+        self.name = name
+        self.population = population
+        self.area = area
+        self.is_big = self.population > 250000000 or self.area > 3000000
+    
+    def compare_pd(self, other):
+        self_density = self.population / self.area
+        other_density = other.population / other.area
+        
+        if self_density > other_density:
+            return f"{self.name} has a larger population density than {other.name}"
+        elif self_density < other_density:
+            return f"{self.name} has a smaller population density than {other.name}"
+        else:
+            return f"{self.name} has the same population density as {other.name}"
 
 # Examples:
 australia = Country("Australia", 23545500, 7692024)
