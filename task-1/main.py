@@ -7,7 +7,14 @@
 # - The result should be rounded to two decimal places if necessary.
 
 def calculate_average_age_of_adults(users):
-    pass
+    adult_users = [user for user in users if user['age'] >= 18]
+    
+    if not adult_users:
+        return 0
+    
+    adult_ages = [user['age'] for user in adult_users]
+    average_age = sum(adult_ages) / len(adult_ages)
+    return round(average_age, 2)
 
 # Example user data
 users = [
