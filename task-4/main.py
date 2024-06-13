@@ -7,7 +7,7 @@
 # - A lambda function that takes a string input and appends the specified suffix to it.
 
 def add_suffix(suffix):
-    pass
+    return lambda word: word + suffix
 
 # Examples:
 add_able = add_suffix("able")
